@@ -2,7 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Header from "../Header/Header";
 import MeetingsGrid from "../CompletedMeetings/MeetingsGrid";
-import Grid from "@material-ui/core/Grid";
+import MainContent from "../MainContent/MainContent";
+
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -27,10 +28,7 @@ const HomePage = () => {
       <div className={classes.container}>
         <Header />
         <MeetingsGrid />
-        <main className={classes.mainContent}>
-          <section className="main-stats">stats</section>
-          <section className="main-action-content">Choose Action </section>
-        </main>
+        <MainContent />
       </div>
     </>
   );
