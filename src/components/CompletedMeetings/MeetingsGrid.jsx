@@ -5,7 +5,7 @@ import MeetingItem from "./MeetingItem";
 
 const useStyles = makeStyles((theme) => ({
   meetingsGrid: {
-    margin: `0 auto`,
+   // margin: `0 auto`,
     position:`relative`,
     bottom:`12rem`
     

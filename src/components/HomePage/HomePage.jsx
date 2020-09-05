@@ -1,12 +1,13 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Container from '@material-ui/core/Container';
 import Header from "../Header/Header";
 import MeetingsGrid from "../CompletedMeetings/MeetingsGrid";
 import MainContent from "../MainContent/MainContent";
 
 
 const useStyles = makeStyles((theme) => ({
-  container: {
+ /* container: {
     maxWidth: `92vw`,
     margin: `3.5rem auto`,
     backgroundColor: `#f3f5f9`,
@@ -17,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
   mainContent: {
     margin: `0 auto`,
-  },
+  },*/
 }));
 
 const HomePage = () => {
@@ -25,11 +26,12 @@ const HomePage = () => {
 
   return (
     <>
-      <div className={classes.container}>
-        <Header />
+    <Header />
+    <Container maxWidth="xl" >
+        
         <MeetingsGrid />
         <MainContent />
-      </div>
+    </Container>
     </>
   );
 };

@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   card: {
     maxWidth: `10rem`,
     margin :`.5rem`,
-    borderRadius: `1.5rem`,
+    borderRadius: `1.2rem`,
     [theme.breakpoints.up("sm")]: {
       maxWidth: `30rem`,
       margin :`1rem`,
@@ -69,7 +69,7 @@ export default function MeetingItem() {
             gutterBottom
             style={{ marginLeft: `.8rem` }}
           >
-            Aug 28,2020 9:00 - 10:00 AM MST
+            Sep 5,2020 9:00 - 10:00 AM MST
           </Typography>
         </div>
         <Typography
@@ -100,12 +100,12 @@ export default function MeetingItem() {
           <Avatar alt="User 4" src={user4} />
           <Avatar alt="User 5"  />
           <Avatar alt="User 6"  />
-          <Avatar alt="User 6"  />
-          <Avatar alt="User 6"  />
-          <Avatar alt="User 6"  />
-          <Avatar alt="User 6"  />
-          <Avatar alt="User 6"  />
-          <Avatar alt="User 6"  />
+          <Avatar alt="User 7"  />
+          <Avatar alt="User 8"  />
+          <Avatar alt="User 9"  />
+          <Avatar alt="User 10"  />
+          <Avatar alt="User 11"  />
+          <Avatar alt="User 12"  />
         </AvatarGroup>
       </CardContent>
     </Card>
