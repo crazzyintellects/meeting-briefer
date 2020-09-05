@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import ColorLegends from "../ColorLegends/ColorLegends";
+import UserMeeingAction from "../MeetingAction/UserMeetingAction";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,31 +30,33 @@ export default function MainContent() {
             Stats
           </Paper>
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={6}>
           <Paper className={classes.paper} elevation={5}>
-            Action Item
+            <UserMeeingAction />
           </Paper>
         </Grid>
         <Grid item xs={3}>
-          <Paper
-            className={classes.paper}
-            style={{ minHeight: `24rem` }}
-            elevation={5}
-          >
+          <Paper className={classes.paper} elevation={5}>
             In Progress
           </Paper>
         </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper} elevation={5}>
-            Typing Text
-          </Paper>
-        </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={2}>
           <Paper className={classes.paper} elevation={5}>
             {" "}
             <ColorLegends />
           </Paper>
         </Grid>
+        <Grid item xs={4}>
+          <Paper className={classes.paper} elevation={5}>
+            Typing Text
+          </Paper>
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paper} elevation={5}>
+            TimeLine
+          </Paper>
+        </Grid>
+        
       </Grid>
     </div>
   );
