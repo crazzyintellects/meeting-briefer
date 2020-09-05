@@ -32,10 +32,11 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: `10rem`,
     margin :`.5rem`,
     borderRadius: `1.2rem`,
+    padding:`0.5rem .5rem`,
     [theme.breakpoints.up("sm")]: {
-      maxWidth: `30rem`,
+      maxWidth: `29rem`,
       margin :`1rem`,
-      padding:`0.5rem 1rem`
+    
     },
   },
   meetingDate: {
@@ -51,6 +52,8 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.main,
   },
   avatar :{
+    display:`flex`,
+    flexWrap:'wrap',
    
   }
 }));
@@ -93,7 +96,7 @@ export default function MeetingItem() {
             Read More
           </Button>
         </Typography>
-        <AvatarGroup max={5} >
+        <AvatarGroup max={5} className={classes.avatar}>
           <Avatar alt="User 1" src={user1} />
           <Avatar alt="User 2" src={user2} />
           <Avatar alt="User 3" src={user3} />
