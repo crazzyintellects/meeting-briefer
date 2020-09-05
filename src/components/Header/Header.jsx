@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   header: {
-    height: `17rem`,
+    height: `20rem`,
     backgroundColor: theme.palette.primary.dark,
     borderBottom: theme.palette.primary.light,
     borderTopLeftRadius: `1rem`,
@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 0,
     width: "100%",
     [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(3),
+      //marginLeft: theme.spacing(3),
       width: "auto",
     },
   },
@@ -195,7 +195,7 @@ export default function Header() {
               aria-haspopup="true"
               color="inherit"
             >
-             <Avatar alt="User Image" src={UserImg} className={classes.large} />
+             <Avatar alt="User Image" src={UserImg}  />
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>

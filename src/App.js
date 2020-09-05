@@ -9,6 +9,7 @@ const font = "Nunito";
 const theme = createMuiTheme({
   typography: {
     fontFamily: font,
+    color : `#274e67`,
   },
   palette: {
     primary: {
