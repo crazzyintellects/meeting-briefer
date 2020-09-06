@@ -42,7 +42,8 @@ const RealTimeMeeting = ({ startMeetingAction, stopMeetingAction }) => {
 
     const meetingObj = {
       meetingId: uuidv4(),
-      startTime: new Date(),
+      endTime: new Date(),
+      meetingON : false,
     };
     stopMeetingAction(meetingObj);
 
@@ -57,6 +58,7 @@ const RealTimeMeeting = ({ startMeetingAction, stopMeetingAction }) => {
       meetingId: uuidv4(),
       meetingName: meetingName,
       startTime: selectedDate,
+      meetingON : true
     };
     startMeetingAction(meetingObj);
 

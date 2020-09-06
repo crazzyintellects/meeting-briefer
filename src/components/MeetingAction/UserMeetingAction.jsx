@@ -39,22 +39,22 @@ const UserMeetingAction = ({startMeetingAction,stopMeetingAction}) => {
         Take A Step
       </Typography>
       <Typography
-        variant="body2"
+        variant="body1"
         component="p"
         gutterBottom
         style={{fontWeight:`600`}}
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
+        tempor incididunt. 
       </Typography>
       <Typography
-        variant="body2"
+        variant="body1"
         component="p"
         gutterBottom
         className={classes.userHelpText}
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
+        tempor incididunt.
       </Typography>
       <div className={classes.root}>
         <RealTimeMeeting startMeetingAction={startMeetingAction} stopMeetingAction={stopMeetingAction}/>

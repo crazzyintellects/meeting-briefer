@@ -19,14 +19,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const entityTypeToColorObj = [
-  { entity: "PERSON", color: "#756bb1" },
+  { entity: "PERSON", color: "#aba1e6" },
   { entity: "LOCATION", color: "#D4B924" },
   { entity: `ORGANIZATION`, color: "#56a7a7" },
-  { entity: `COMMERCIAL_ITEM`, color: "#eb8f8f" },
+  { entity: `COMMERCIAL_ITEM`, color: "#a05656" },
   { entity: `EVENT`, color: "#f58743" },
-  { entity: `DATE`, color: "#ffd571`" },
+  { entity: `DATE`, color: "#fb6e94" },
   { entity: `QUANTITY`, color: "#799351" },
-  { entity: `TITLE`, color: "#e287ae" },
+  { entity: `TITLE`, color: "#259ee4" },
   { entity: `OTHER`, color: "#9c938b" },
   { entity: `KEY PHRASES`, color: "#a4b494" },
 ];

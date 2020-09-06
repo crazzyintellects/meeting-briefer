@@ -49,7 +49,8 @@ const useStyles = makeStyles((theme) => ({
   },
   meetingText: {
     fontWeight: 600,
-    color: theme.palette.primary.main,
+    color: theme.palette.primary.dark,
+   
   },
   avatar :{
     display:`flex`,
@@ -85,7 +86,7 @@ export default function MeetingItem() {
         </Typography>
 
         <Typography
-          variant="body2"
+          variant="body1"
           component="p"
           gutterBottom
           className={classes.meetingText}
