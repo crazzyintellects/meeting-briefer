@@ -6,6 +6,9 @@ import Button from "@material-ui/core/Button";
 import "date-fns";
 import Grid from "@material-ui/core/Grid";
 import DateFnsUtils from "@date-io/date-fns";
+import useToggle from "../../hooks/useToggle";
+import useFormState from "../../hooks/useFormState";
+import { v4 as uuidv4 } from "uuid";
 
 import {
   MuiPickersUtilsProvider,
@@ -23,12 +26,42 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const RealTimeMeeting = () => {
+const RealTimeMeeting = ({ startMeetingAction, stopMeetingAction }) => {
   const classes = useStyles();
   const [selectedDate, setSelectedDate] = React.useState(new Date());
+  const [showStartBtn, setShowStartButton] = useToggle(true);
+  const [meetingName, setMeetingName, resetMeetingName] = useFormState("");
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
+  };
+
+  const stopMeeting = () => {
+    setShowStartButton();
+    handleDateChange(new Date());
+
+    const meetingObj = {
+      meetingId: uuidv4(),
+      startTime: new Date(),
+    };
+    stopMeetingAction(meetingObj);
+
+    //resetMeetingName();
+    //document.getElementById('theForm').submit();
+  };
+
+  const startMeeting = () => {
+    setShowStartButton();
+
+    const meetingObj = {
+      meetingId: uuidv4(),
+      meetingName: meetingName,
+      startTime: selectedDate,
+    };
+    startMeetingAction(meetingObj);
+
+    resetMeetingName();
+    //document.getElementById('theForm').submit();
   };
 
   return (
@@ -36,9 +69,11 @@ const RealTimeMeeting = () => {
       <form className={classes.realTimeMeeting} noValidate autoComplete="off">
         <TextField
           required
-          id="meeting-name"
+          id="real-time-meeting-name"
           label="Meeting Name"
           color="primary"
+          onChange={setMeetingName}
+          value={meetingName}
         />
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
           <Grid container justify="space-around">
@@ -66,9 +101,27 @@ const RealTimeMeeting = () => {
           </Grid>
         </MuiPickersUtilsProvider>
 
-        <Button variant="contained" color="primary">
-          Start Meeting
-        </Button>
+        {showStartBtn ? (
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={startMeeting}
+            name="startButton"
+            value="start"
+          >
+            Start Meeting
+          </Button>
+        ) : (
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={stopMeeting}
+            name="stopButton"
+            value="stop"
+          >
+            Stop Meeting
+          </Button>
+        )}
       </form>
     </>
   );

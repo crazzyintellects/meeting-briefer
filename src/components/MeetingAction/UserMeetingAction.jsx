@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const UserMeetingAction = () => {
+const UserMeetingAction = ({startMeetingAction,stopMeetingAction}) => {
   const classes = useStyles();
 
   return (
@@ -57,7 +57,7 @@ const UserMeetingAction = () => {
         tempor incididunt ut labore et dolore magna aliqua.
       </Typography>
       <div className={classes.root}>
-        <RealTimeMeeting />
+        <RealTimeMeeting startMeetingAction={startMeetingAction} stopMeetingAction={stopMeetingAction}/>
         <Divider orientation="vertical" flexItem />
         <OfflineMeeting />
       </div>
