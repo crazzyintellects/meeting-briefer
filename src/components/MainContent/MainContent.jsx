@@ -6,6 +6,7 @@ import ColorLegends from "../ColorLegends/ColorLegends";
 import UserMeeingAction from "../MeetingAction/UserMeetingAction";
 import CurrentMeetingTranscript from "../MeetingTranscript/CurrentMeetingTranscript";
 import SummaryTimeline from "../MeetingSummaryTimeline/SummaryTimeline";
+import InProgress from "../InProgressMeetings/InProgress";
 //import {startTranscribing,closeSocket} from '../../apihelpers/transcribe';
 
 const audioUtils = require("../../utils/audioUtils"); // for encoding audio data as PCM
@@ -329,7 +330,7 @@ export default function MainContent() {
         </Grid>
         <Grid item xs={3}>
           <Paper className={classes.paper} elevation={5}>
-            In Progress
+            <InProgress/>
           </Paper>
         </Grid>
         <Grid item xs={2}>
