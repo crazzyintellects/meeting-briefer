@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import ColorLegends from "../ColorLegends/ColorLegends";
 import UserMeeingAction from "../MeetingAction/UserMeetingAction";
 import CurrentMeetingTranscript from "../MeetingTranscript/CurrentMeetingTranscript";
+import SummaryTimeline from "../MeetingSummaryTimeline/SummaryTimeline";
 //import {startTranscribing,closeSocket} from '../../apihelpers/transcribe';
 
 const audioUtils = require("../../utils/audioUtils"); // for encoding audio data as PCM
@@ -344,7 +345,7 @@ export default function MainContent() {
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper} elevation={5}>
-            TimeLine
+            <SummaryTimeline />
           </Paper>
         </Grid>
       </Grid>

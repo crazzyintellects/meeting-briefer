@@ -28,7 +28,7 @@ const entityTypeToColorObj = [
   { entity: `QUANTITY`, color: "#799351" },
   { entity: `TITLE`, color: "#259ee4" },
   { entity: `OTHER`, color: "#9c938b" },
-  { entity: `KEY PHRASES`, color: "#a4b494" },
+ 
 ];
 
 const ColorLegends = () => {
@@ -55,6 +55,13 @@ const ColorLegends = () => {
             />
           );
         })}
+
+        <Chip
+              key="KEY PHRASES"
+              label="KEY PHRASES"
+              color="primary"
+              style={{ backgroundColor: `#a4b494` , textDecorationLine:'underline' }}
+            />
       </div>
     </>
   );

@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import comprehend from "../../apihelpers/comprehend";
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -85,7 +86,7 @@ const CurrentMeetingTranscript = ({ meeting }) => {
     processEntities(params);
 
     //call keyphrase
-    //processKeyPhrases(params);
+    // processKeyPhrases(params);
 
     //call sentiment
     //processSentiment(params);
@@ -130,9 +131,12 @@ const CurrentMeetingTranscript = ({ meeting }) => {
       }
     });
   };
+  /*let data = `The American Express Company, also known as Amex, is an American multinational financial services corporation headquartered at 200 Vesey Street in New York City. The company was founded in 1850 and is one of the 30 components of the Dow Jones Industrial Average. The company is best known for its charge card, credit card, and traveler's cheque businesses.
+  During the 1980s, Amex invested in the brokerage industry, acquiring what became, in increments, Shearson Lehman Hutton and then divesting these into what became Smith Barney Shearson (owned by Primerica) and a revived Lehman Brothers. By 2008 neither the Shearson nor the Lehman name existed.In 2016, credit cards using the American Express network accounted for 22.9% of the total dollar volume of credit card transactions in the United States. As of December 31, 2019, the company had 114.4 million cards in force, including 54.7 million cards in force in the United States, each with an average annual spending of $19,972.`;
+  processTranscript(data);*/
 
-  const processKeyPhrases = (params) => {};
-  const processSentiment = (params) => {};
+  // const processKeyPhrases = async (params) => {};
+  //const processSentiment = (params) => {};
 
   return (
     <>
@@ -144,6 +148,7 @@ const CurrentMeetingTranscript = ({ meeting }) => {
       >
         Meeting Transcript for {meeting.meetingName}
       </Typography>
+
       <div className={`${classes.root} `}>
         <Typography
           variant="body1"
