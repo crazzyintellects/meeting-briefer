@@ -7,15 +7,18 @@ import TimelineConnector from "@material-ui/lab/TimelineConnector";
 import TimelineContent from "@material-ui/lab/TimelineContent";
 import TimelineOppositeContent from "@material-ui/lab/TimelineOppositeContent";
 import TimelineDot from "@material-ui/lab/TimelineDot";
-import Icon from '@material-ui/core/Icon';
+import Icon from "@material-ui/core/Icon";
 
 import LaptopMacIcon from "@material-ui/icons/LaptopMac";
 
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import AssignmentTurnedIn from "@material-ui/icons/AssignmentTurnedIn";
-import EditIcon from "@material-ui/icons/Edit";
-import Button from '@material-ui/core/Button';
+
+import Button from "@material-ui/core/Button";
+
+import IconButtons from "./IconButtons";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: `space-between`,
     color: theme.palette.primary.dark,
   },
-
   title: {
     fontWeight: 700,
     color: theme.palette.primary.dark,
@@ -72,7 +74,7 @@ export default function SummaryTimeline() {
           </TimelineSeparator>
           <TimelineContent>
             <Paper elevation={3} className={classes.paper}>
-              <EditIcon color="secondary" style={{ marginRight: `1rem` }} />
+              <IconButtons />
               <Typography style={{ textAlign: "start" }}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -96,7 +98,7 @@ export default function SummaryTimeline() {
           </TimelineSeparator>
           <TimelineContent>
             <Paper elevation={3} className={classes.paper}>
-              <EditIcon color="secondary" style={{ marginRight: `1rem` }} />
+            <IconButtons />
               <Typography style={{ textAlign: "start" }}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -120,7 +122,7 @@ export default function SummaryTimeline() {
           </TimelineSeparator>
           <TimelineContent>
             <Paper elevation={3} className={classes.paper}>
-              <EditIcon color="secondary" style={{ marginRight: `1rem` }} />
+            <IconButtons />
               <Typography style={{ textAlign: "start" }}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -144,7 +146,7 @@ export default function SummaryTimeline() {
           </TimelineSeparator>
           <TimelineContent>
             <Paper elevation={3} className={classes.paper}>
-              <EditIcon color="secondary" style={{ marginRight: `1rem` }} />
+            <IconButtons />
               <Typography style={{ textAlign: "start" }}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -168,7 +170,7 @@ export default function SummaryTimeline() {
           </TimelineSeparator>
           <TimelineContent>
             <Paper elevation={3} className={classes.paper}>
-              <EditIcon color="secondary" style={{ marginRight: `1rem` }} />
+            <IconButtons />
               <Typography style={{ textAlign: "start" }}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -192,7 +194,7 @@ export default function SummaryTimeline() {
           </TimelineSeparator>
           <TimelineContent>
             <Paper elevation={3} className={classes.paper}>
-              <EditIcon color="secondary" style={{ marginRight: `1rem` }} />
+            <IconButtons />
               <Typography style={{ textAlign: "start" }}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -209,13 +211,13 @@ export default function SummaryTimeline() {
             </Typography>
           </TimelineOppositeContent>
           <TimelineSeparator>
-            <TimelineDot style={{backgroundColor :'#44b300'}}>
-              <AssignmentTurnedIn  />
+            <TimelineDot style={{ backgroundColor: "#44b300" }}>
+              <AssignmentTurnedIn />
             </TimelineDot>
           </TimelineSeparator>
           <TimelineContent>
             <Paper elevation={3} className={classes.paper}>
-              <EditIcon color="secondary"  style={{ marginRight: `1rem`  }} />
+            <IconButtons />
               <Typography style={{ textAlign: "start" }}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -227,13 +229,13 @@ export default function SummaryTimeline() {
         </TimelineItem>
       </Timeline>
       <Button
-      variant="contained"
-      color="primary"
-      className={classes.button}
-      endIcon={<Icon>send</Icon>}
-    >
-      Send
-    </Button>
+        variant="contained"
+        color="primary"
+        className={classes.button}
+        endIcon={<Icon>send</Icon>}
+      >
+        Send
+      </Button>
     </>
   );
 }
