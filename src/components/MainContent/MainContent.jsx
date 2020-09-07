@@ -8,6 +8,7 @@ import CurrentMeetingTranscript from "../MeetingTranscript/CurrentMeetingTranscr
 import SummaryTimeline from "../MeetingSummaryTimeline/SummaryTimeline";
 import InProgress from "../InProgressMeetings/InProgress";
 //import {startTranscribing,closeSocket} from '../../apihelpers/transcribe';
+import {config} from "../../config/config";
 
 const audioUtils = require("../../utils/audioUtils"); // for encoding audio data as PCM
 const crypto = require("crypto"); // tot sign our pre-signed URL
@@ -16,6 +17,7 @@ const marshaller = require("@aws-sdk/eventstream-marshaller"); // for converting
 const util_utf8_node = require("@aws-sdk/util-utf8-node"); // utilities for encoding and decoding UTF8
 const mic = require("microphone-stream");
 //const $                 = require('jquery');  // collect microphone input as a stream of raw bytes
+
 
 // our converter between binary event streams messages and JSON
 const eventStreamMarshaller = new marshaller.EventStreamMarshaller(
@@ -35,8 +37,8 @@ let socketError = false;
 let transcribeException = false;
 
 //DO NOT COMMIT
-let accessID = "";
-let secret = "";
+let accessID = config.accessKeyId;
+let secret = config.secretAccessKey;
 
 const useStyles = makeStyles((theme) => ({
   root: {
