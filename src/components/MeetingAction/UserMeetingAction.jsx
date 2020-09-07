@@ -22,6 +22,8 @@ const useStyles = makeStyles((theme) => ({
   userHelpText: {
     fontWeight: 600,
     color: theme.palette.secondary.main,
+    textTransform :'capitalize' ,
+    textAlign :'start'
   },
 }));
 
@@ -42,19 +44,18 @@ const UserMeetingAction = ({startMeetingAction,stopMeetingAction}) => {
         variant="body1"
         component="p"
         gutterBottom
-        style={{fontWeight:`600`}}
+        style={{fontWeight:`600`, textTransform :'capitalize' ,textAlign :'start'}}
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt. 
+        Need to host a meeting; Don't worry, just start meeting and come back to get the summary <span role="img" aria-label="sunglasses">😎</span>
       </Typography>
       <Typography
         variant="body1"
         component="p"
         gutterBottom
         className={classes.userHelpText}
+        
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt.
+        Missed out last meeting; Paste the recording URL; we will get you the context; you grab a coffee <span role="img" aria-label="coffee">☕️</span>
       </Typography>
       <div className={classes.root}>
         <RealTimeMeeting startMeetingAction={startMeetingAction} stopMeetingAction={stopMeetingAction}/>

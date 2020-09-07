@@ -42,8 +42,15 @@ const ColorLegends = () => {
         gutterBottom
         className={classes.title}
       >
-        Text Legends
+        Color Legends
       </Typography>
+      <Typography
+      variant="caption"
+      gutterBottom
+      style={{fontSize:`0.8rem`}}
+    >
+    "Life is like a box of crayons. Find yours" <span role="img" aria-label="crayon">🖍</span>
+    </Typography>
       <div className={classes.root}>
         {entityTypeToColorObj.map((data) => {
           return (

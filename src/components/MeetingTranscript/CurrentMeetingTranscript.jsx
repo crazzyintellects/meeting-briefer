@@ -77,6 +77,8 @@ const CurrentMeetingTranscript = ({ meeting }) => {
   // Comprehend api call method
   const processTranscript = async (meetingTranscript) => {
     //set up params
+    if(meetingTranscript === undefined || meetingTranscript === "") return;
+
     const params = {
       LanguageCode: "en" /* required - other option is es */,
       Text: meetingTranscript /* required - string that will parse for detecting entities */,
@@ -146,7 +148,7 @@ const CurrentMeetingTranscript = ({ meeting }) => {
         gutterBottom
         className={classes.title}
       >
-        Meeting Transcript for {meeting.meetingName}
+      {meeting.meetingName} Transcript  
       </Typography>
 
       <div className={`${classes.root} `}>
