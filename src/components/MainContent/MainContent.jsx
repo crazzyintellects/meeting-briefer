@@ -59,7 +59,7 @@ export default function MainContent() {
     transcript: "",
     startTime: new Date(),
     endTime : "",
-    meetingON: false,
+    
     summary: {
       start: new Date(),
       text: "This is good",
@@ -171,7 +171,7 @@ export default function MainContent() {
       }
     };
   }
-
+ let transcription = "";
   let handleEventStreamMessage = function (messageJson) {
     let results = messageJson.Transcript.Results;
     // console.log(results);
@@ -184,27 +184,23 @@ export default function MainContent() {
         // fix encoding for accented characters
         transcript = decodeURIComponent(escape(transcript));
 
-        // update the textarea with the latest result
-        //$('#typeTranscript').html(transcription + transcript + "\n");
-        // transcription = transcription + transcript;
+       // document.getElementById("typeText").innerHTML = transcription + transcript + "\n";
         setMeeting((prevState) => {
-          // Object.assign would also work
-          return { ...prevState, transcript: transcript };
+         
+          return { ...prevState, transcript:transcription + transcript + "\n" };
         });
 
         // if this transcript segment is final, add it to the overall transcription
         if (!results[0].IsPartial) {
-          //scroll the textarea down
-          //$('#transcript').scrollTop($('#transcript')[0].scrollHeight);
-          //transcription += transcript + "\n";
-          // transcription += transcript ;
-          setMeeting((prevState) => {
-            // Object.assign would also work
-            return { ...prevState, transcript: transcript };
-          });
-        }
+         
+           transcription += transcript + "\n";
+          
+        
+      }
 
         //return transcription;
+
+       
       }
     }
   };

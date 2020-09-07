@@ -1,11 +1,16 @@
-const AWS = require('aws-sdk');
+const AWS = require("aws-sdk");
 
+//AWS.config.loadFromPath('../config/config.json');
+//var creds = new AWS.FileSystemCredentials('../config/config.json');
+//console.log(creds);
 if (!AWS.config.region) {
-    console.log(`empty region`);
-    AWS.config.update({
-      region: 'us-east-2'
-    });
-
-  };
+  AWS.config.update({
+    region: "us-east-2",
+    credentials: {
+      accessKeyId: "",
+      secretAccessKey: "",
+    },
+  });
+}
 const comprehend = new AWS.Comprehend();
-export default comprehend ;
+export default comprehend;
