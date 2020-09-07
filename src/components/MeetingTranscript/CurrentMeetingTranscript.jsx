@@ -128,7 +128,9 @@ const CurrentMeetingTranscript = ({ meeting }) => {
             // console.log(processedString);
             startIndex = entity.EndOffset + 1;
           }
-          document.getElementById("typeText").innerHTML = renderTranscript;
+           
+          if(renderTranscript !== "")
+              document.getElementById("typeText").innerHTML = renderTranscript;
         }
       }
     });
