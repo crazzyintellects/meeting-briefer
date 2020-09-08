@@ -178,8 +178,8 @@ export default function MainContent() {
  let transcription = "";
   let handleEventStreamMessage = function (messageJson) {
     let results = messageJson.Transcript.Results;
-    // console.log(results);
-    console.log(`results : ${JSON.stringify(results, null, 2)}`);
+    
+    // console.log(`results : ${JSON.stringify(results, null, 2)}`);
 
     if (results.length > 0) {
       if (results[0].Alternatives.length > 0) {
