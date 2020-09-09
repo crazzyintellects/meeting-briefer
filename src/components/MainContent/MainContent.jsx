@@ -29,18 +29,18 @@ export default function MainContent({ meetings }) {
   return (
     <div className={classes.root}>
       <Grid container spacing={4} alignContent="center" justify="space-between">
-        <Grid item xs={2} xl={3}>
+        <Grid item xs={2} >
           <Paper className={classes.paper} elevation={5}>
             {" "}
             <ColorLegends />
           </Paper>
         </Grid>
-        <Grid item xs={7} xl={6}>
+        <Grid item xs={6} >
           <Paper className={classes.paper} elevation={5}>
             <UserMeeingAction />
           </Paper>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={4}>
           <Paper className={classes.paper} elevation={5}>
             <InProgress />
           </Paper>
