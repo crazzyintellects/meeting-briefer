@@ -45,7 +45,7 @@ export default function MainContent({ meetings }) {
             <InProgress />
           </Paper>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={3}>
           <Paper className={classes.paper} elevation={5}>
             <CurrentMeetingTranscript />
           </Paper>
@@ -56,7 +56,7 @@ export default function MainContent({ meetings }) {
           </Paper>
         </Grid>
 
-        <Grid item xs={5}>
+        <Grid item xs={6}>
           <Paper className={classes.paper} elevation={5}>
             <SummaryTimeline />
           </Paper>
