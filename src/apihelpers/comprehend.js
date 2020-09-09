@@ -77,7 +77,7 @@ const processEntities = async (params) => {
         }
 
         //last part of the string to be appended
-        if (endIndex !== params.Text.length - 1) {
+        if (endIndex !== 0 && endIndex !== params.Text.length - 1) {
           let afterString = params.Text.slice(endIndex + 1, params.Text.length);
           renderTranscript += afterString;
         }
