@@ -22,12 +22,12 @@ const useStyles = makeStyles((theme) => ({
   userHelpText: {
     fontWeight: 600,
     color: theme.palette.secondary.main,
-    textTransform :'capitalize' ,
-    textAlign :'start'
+    textTransform: "capitalize",
+    textAlign: "start",
   },
 }));
 
-const UserMeetingAction = ({startMeetingAction,stopMeetingAction}) => {
+const UserMeetingAction = () => {
   const classes = useStyles();
 
   return (
@@ -44,21 +44,32 @@ const UserMeetingAction = ({startMeetingAction,stopMeetingAction}) => {
         variant="body1"
         component="p"
         gutterBottom
-        style={{fontWeight:`600`, textTransform :'capitalize' ,textAlign :'start'}}
+        style={{
+          fontWeight: `600`,
+          textTransform: "capitalize",
+          textAlign: "start",
+        }}
       >
-        Need to host a meeting; Don't worry, just start meeting and come back to get the summary <span role="img" aria-label="sunglasses">😎</span>
+        Need to host a meeting; Don't worry, just start meeting and come back to
+        get the summary{" "}
+        <span role="img" aria-label="sunglasses">
+          😎
+        </span>
       </Typography>
       <Typography
         variant="body1"
         component="p"
         gutterBottom
         className={classes.userHelpText}
-        
       >
-        Missed out last meeting; Paste the recording URL; we will get you the context; you grab a coffee <span role="img" aria-label="coffee">☕️</span>
+        Missed out last meeting; Paste the recording URL; we will get you the
+        context; you grab a coffee{" "}
+        <span role="img" aria-label="coffee">
+          ☕️
+        </span>
       </Typography>
       <div className={classes.root}>
-        <RealTimeMeeting startMeetingAction={startMeetingAction} stopMeetingAction={stopMeetingAction}/>
+        <RealTimeMeeting />
         <Divider orientation="vertical" flexItem />
         <OfflineMeeting />
       </div>

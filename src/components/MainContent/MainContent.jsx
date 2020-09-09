@@ -7,7 +7,6 @@ import UserMeeingAction from "../MeetingAction/UserMeetingAction";
 import CurrentMeetingTranscript from "../MeetingTranscript/CurrentMeetingTranscript";
 import SummaryTimeline from "../MeetingSummaryTimeline/SummaryTimeline";
 import InProgress from "../InProgressMeetings/InProgress";
-import {useSingleMeetingState } from '../../hooks/useMeetingState';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -24,28 +23,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MainContent({meetings}) {
+export default function MainContent({ meetings }) {
   const classes = useStyles();
-  const initialMeeting = {
-    meetingId: 1,
-    meetingName: "",
-    // transcript: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    transcript: "",
-    startTime: new Date(),
-    endTime: "",
-    completed: false,
-    summary: {
-      start: new Date(),
-      text: "This is good",
-      interval: 1,
-    },
-  };
-
-
-  const { singleMeeting, startMeeting, stopMeeting} = useSingleMeetingState(
-    initialMeeting
-  );
-
 
   return (
     <div className={classes.root}>
@@ -58,25 +37,22 @@ export default function MainContent({meetings}) {
         </Grid>
         <Grid item xs={7} xl={6}>
           <Paper className={classes.paper} elevation={5}>
-            <UserMeeingAction
-              startMeetingAction={startMeeting}
-              stopMeetingAction={stopMeeting}
-            />
+            <UserMeeingAction />
           </Paper>
         </Grid>
         <Grid item xs={3}>
           <Paper className={classes.paper} elevation={5}>
-            <InProgress meetings={meetings} />
+            <InProgress />
           </Paper>
         </Grid>
         <Grid item xs={4}>
           <Paper className={classes.paper} elevation={5}>
-            <CurrentMeetingTranscript meeting={singleMeeting} />
+            <CurrentMeetingTranscript />
           </Paper>
         </Grid>
         <Grid item xs={3}>
           <Paper className={classes.paper} elevation={5}>
-              Key Phrases
+            Key Phrases
           </Paper>
         </Grid>
 

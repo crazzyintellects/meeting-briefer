@@ -1,7 +1,9 @@
-import React from "react";
+import React  ,{ useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import MeetingItem from "./MeetingItem";
+import {MeetingsContext} from "../../context/meetings.context.js";
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -29,9 +31,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MeetingsGrid = ({meetings}) => {
+const MeetingsGrid = () => {
   const classes = useStyles();
-
+  const { meetings } = useContext(MeetingsContext);
 
  
   let completedMeetings = [];

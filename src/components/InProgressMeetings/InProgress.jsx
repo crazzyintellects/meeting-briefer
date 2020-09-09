@@ -1,10 +1,11 @@
-import React , {memo} from "react";
+import React , {memo, useContext} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import CircularProgressLabel from "./CircularProgressLabel";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import Button from '@material-ui/core/Button';
 import Divider from "@material-ui/core/Divider";
+import {MeetingsContext} from "../../context/meetings.context.js";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,8 +40,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const InProgress = ({ meetings }) => {
+const InProgress = () => {
   const classes = useStyles();
+  const { meetings } = useContext(MeetingsContext);
   
   let inProgressMeetings = [];
   if (meetings.length){

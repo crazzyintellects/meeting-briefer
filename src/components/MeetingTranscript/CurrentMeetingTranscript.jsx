@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect , useContext} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { processTranscript } from "../../apihelpers/comprehend";
+import {SingleMeetingContext} from "../../context/singleMeeting.context.js";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,15 +22,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CurrentMeetingTranscript = ({ meeting }) => {
+const CurrentMeetingTranscript = () => {
   const classes = useStyles();
-
+  const { singleMeeting } = useContext(SingleMeetingContext);
   const initialState = {
-    originalTranscript: meeting.transcript,
+    originalTranscript: singleMeeting.transcript,
     intervalDuration: 30000,
     sentiment: "NEUTRAL",
     //processedTrancript: meeting.transcript,
-    meetingON: meeting.meetingON,
+    meetingON: singleMeeting.meetingON,
   };
 
   // Set up initial Transcript
@@ -39,15 +40,15 @@ const CurrentMeetingTranscript = ({ meeting }) => {
   //Update the original transcript
   useEffect(() => {
     console.log("inside use effect ");
-    if (meeting.transcript !== meetingTranscript.originalTranscript) {
-      if (meeting.meetingON === false)
-        setTimeout(processTranscript, 3000, meeting.transcript);
+    if (singleMeeting.transcript !== meetingTranscript.originalTranscript) {
+      if (singleMeeting.meetingON === false)
+        setTimeout(processTranscript, 3000, singleMeeting.transcript);
     }
     // eslint-disable-next-line
   }, [
     // meeting.transcript,
     // meetingTranscript.originalTranscript,
-    meeting.meetingON,
+    singleMeeting.meetingON,
   ]);
 
   /*let data = ` multinational financial services corporation headquartered at 200 Vesey Street in New York City. The company was founded in 1850 and is one of the 30 components of the Dow Jones Industrial Average. The company is best known for its charge card, credit card, and traveler's cheque businesses.
@@ -62,7 +63,7 @@ const CurrentMeetingTranscript = ({ meeting }) => {
         gutterBottom
         className={classes.title}
       >
-        {meeting.meetingName} Transcript
+        {singleMeeting.meetingName} Transcript
       </Typography>
 
       <div className={`${classes.root} `}>
@@ -73,7 +74,7 @@ const CurrentMeetingTranscript = ({ meeting }) => {
           style={{ fontWeight: 600 }}
           id="typeText"
         >
-          {meeting.transcript}
+          {singleMeeting.transcript}
         </Typography>
       </div>
     </>

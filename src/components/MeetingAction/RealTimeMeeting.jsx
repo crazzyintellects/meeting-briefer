@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useContext} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import TextField from "@material-ui/core/TextField";
@@ -8,7 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import DateFnsUtils from "@date-io/date-fns";
 import useToggle from "../../hooks/useToggle";
 import useFormState from "../../hooks/useFormState";
-
+import {SingleMeetingContext} from "../../context/singleMeeting.context.js";
 
 import {
   MuiPickersUtilsProvider,
@@ -26,8 +26,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const RealTimeMeeting = ({ startMeetingAction, stopMeetingAction }) => {
+const RealTimeMeeting = () => {
   const classes = useStyles();
+  const { startMeeting , stopMeeting } = useContext(SingleMeetingContext);
+
   const [selectedDate, setSelectedDate] = React.useState(new Date());
   const [showStartBtn, setShowStartButton] = useToggle(true);
   const [meetingName, setMeetingName, resetMeetingName] = useFormState("");
@@ -36,19 +38,19 @@ const RealTimeMeeting = ({ startMeetingAction, stopMeetingAction }) => {
     setSelectedDate(date);
   };
 
-  const stopMeeting = () => {
+  const stopMeetingHandler = () => {
     
     setShowStartButton();
     handleDateChange(new Date());
-    stopMeetingAction();
+    stopMeeting();
 
     //resetMeetingName();
     //document.getElementById('theForm').submit();
   };
 
-  const startMeeting = () => {
+  const startMeetingHandler = () => {
     setShowStartButton();
-    startMeetingAction( meetingName,selectedDate);
+    startMeeting( meetingName,selectedDate);
     resetMeetingName();
     //document.getElementById('theForm').submit();
   };
@@ -94,7 +96,7 @@ const RealTimeMeeting = ({ startMeetingAction, stopMeetingAction }) => {
           <Button
             variant="contained"
             color="primary"
-            onClick={startMeeting}
+            onClick={startMeetingHandler}
             name="startButton"
             value="start"
           >
@@ -104,7 +106,7 @@ const RealTimeMeeting = ({ startMeetingAction, stopMeetingAction }) => {
           <Button
             variant="contained"
             color="primary"
-            onClick={stopMeeting}
+            onClick={stopMeetingHandler}
             name="stopButton"
             value="stop"
           >
