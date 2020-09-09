@@ -8,7 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import DateFnsUtils from "@date-io/date-fns";
 import useToggle from "../../hooks/useToggle";
 import useFormState from "../../hooks/useFormState";
-import { v4 as uuidv4 } from "uuid";
+
 
 import {
   MuiPickersUtilsProvider,
@@ -37,15 +37,10 @@ const RealTimeMeeting = ({ startMeetingAction, stopMeetingAction }) => {
   };
 
   const stopMeeting = () => {
+    
     setShowStartButton();
     handleDateChange(new Date());
-
-    const meetingObj = {
-      meetingId: uuidv4(),
-      endTime: new Date(),
-      meetingON : false,
-    };
-    stopMeetingAction(meetingObj);
+    stopMeetingAction();
 
     //resetMeetingName();
     //document.getElementById('theForm').submit();
@@ -53,15 +48,7 @@ const RealTimeMeeting = ({ startMeetingAction, stopMeetingAction }) => {
 
   const startMeeting = () => {
     setShowStartButton();
-
-    const meetingObj = {
-      meetingId: uuidv4(),
-      meetingName: meetingName,
-      startTime: selectedDate,
-      meetingON : true
-    };
-    startMeetingAction(meetingObj);
-
+    startMeetingAction( meetingName,selectedDate);
     resetMeetingName();
     //document.getElementById('theForm').submit();
   };

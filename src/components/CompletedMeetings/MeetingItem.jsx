@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function MeetingItem() {
+export default function MeetingItem(props) {
   const classes = useStyles();
 
   return (
@@ -73,7 +73,7 @@ export default function MeetingItem() {
             gutterBottom
             style={{ marginLeft: `.8rem` }}
           >
-            Sep 5,2020 9:00 - 10:00 AM MST
+            {props.startTime}
           </Typography>
         </div>
         <Typography
@@ -82,7 +82,7 @@ export default function MeetingItem() {
           gutterBottom
           className={classes.meetingTitle}
         >
-          vPayment Launchpad
+          {props.meetingName}
         </Typography>
 
         <Typography
@@ -91,8 +91,7 @@ export default function MeetingItem() {
           gutterBottom
           className={classes.meetingText}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+         {props.summary.text}
           <Button color="secondary" size="small">
             Read More
           </Button>

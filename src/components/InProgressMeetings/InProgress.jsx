@@ -1,4 +1,4 @@
-import React from "react";
+import React , {memo} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import CircularProgressLabel from "./CircularProgressLabel";
@@ -39,9 +39,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const InProgress = ({ startMeetingAction, stopMeetingAction }) => {
+const InProgress = ({ meetings }) => {
   const classes = useStyles();
+  
+  let inProgressMeetings = [];
+  if (meetings.length){
+    inProgressMeetings = meetings.filter(meeting => !meeting.completed);
+    inProgressMeetings = inProgressMeetings.slice(-3);
+  }
+     
 
+ if(inProgressMeetings.length)
   return (
     <>
       <Typography
@@ -52,6 +60,8 @@ const InProgress = ({ startMeetingAction, stopMeetingAction }) => {
       >
         In Progress (Summary)
       </Typography>
+      {inProgressMeetings.map((meeting, i) => (  
+        <React.Fragment key={i}>
       <div className={classes.root}>
         <div className={classes.meetingContent}>
           <Typography
@@ -60,57 +70,25 @@ const InProgress = ({ startMeetingAction, stopMeetingAction }) => {
             
             className={classes.userHelpText}
           >
-            Meeting 1
+           {meeting.meetingName} 
           </Typography>
           <div className={classes.meetingTime}>
             <AccessTimeIcon />
-            <Typography>Sep 5,2020 9:00-10:00 </Typography>
+            <Typography>{meeting.startTime} </Typography>
           </div>
         </div>
         <CircularProgressLabel value={77} />
       </div>
       <Divider />
-      <div className={classes.root}>
-        <div className={classes.meetingContent}>
-          <Typography
-            variant="body1"
-            component="p"
-            
-            className={classes.userHelpText}
-          >
-            Meeting 2
-          </Typography>
-          <div className={classes.meetingTime}>
-            <AccessTimeIcon />
-            <Typography>Sep 11,2020 14:00-16:00 </Typography>
-          </div>
-        </div>
-        <CircularProgressLabel value={52} />
-      </div>
-
-      <Divider />
-      <div className={classes.root}>
-        <div className={classes.meetingContent}>
-          <Typography
-            variant="body1"
-            component="p"
-            
-            className={classes.userHelpText}
-          >
-            Meeting 3
-          </Typography>
-          <div className={classes.meetingTime}>
-            <AccessTimeIcon />
-            <Typography>Sep 8,2020 11:00-12:00 </Typography>
-          </div>
-        </div>
-        <CircularProgressLabel value={28} />
-      </div>
-      <Button variant="outlined" color="secondary">
+      </React.Fragment>
+      ))}
+     
+      <Button variant="outlined" color="secondary" style={{marginTop:`1rem`}}>
         See All
       </Button>
     </>
   );
+  return null;
 };
 
-export default InProgress;
+export default memo(InProgress);

@@ -3,52 +3,69 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import MeetingItem from "./MeetingItem";
 
+
 const useStyles = makeStyles((theme) => ({
   meetingsGrid: {
-   // margin: `0 auto`,
-    position:`relative`,
-    bottom:`12rem`
-    
+    // margin: `0 auto`,
+    position: `relative`,
+    bottom: `12rem`,
   },
-  meetingSection : {
-      display:`flex`,
-      justifyContent:`center`,
-      alignItems:'center',
-      flexWrap:'wrap',
-
+  meetingSection: {
+    display: `flex`,
+    justifyContent: `center`,
+    alignItems: "center",
+    flexWrap: "wrap",
   },
-  meetingItem :{
-      margin: `2rem`
+  meetingItem: {
+    margin: `2rem`,
   },
-  title : {
+  title: {
     display: `flex`,
     flexWrap: `wrap`,
     alignItems: `center`,
     justifyContent: `center`,
-    color:"#fff",
-    fontWeight :`700`
-  }
-
+    color: "#fff",
+    fontWeight: `700`,
+  },
 }));
 
-const MeetingsGrid = () => {
+const MeetingsGrid = ({meetings}) => {
   const classes = useStyles();
 
-  return (
-    <>
-      <section className={classes.meetingsGrid}>
-        <Typography className={classes.title} gutterBottom variant="h5" noWrap>
-          Recent Meetings
-        </Typography>
-        <section className={classes.meetingSection}>
-          <MeetingItem />
-          <MeetingItem />
-          <MeetingItem />
-         
+
+ 
+  let completedMeetings = [];
+  if (meetings.length){
+    completedMeetings = meetings.filter(meeting => meeting.completed);
+    completedMeetings = completedMeetings.slice(-3);
+  }
+     
+
+  if (completedMeetings.length)
+    return (
+      <>
+        <section className={classes.meetingsGrid}>
+          <Typography
+            className={classes.title}
+            gutterBottom
+            variant="h5"
+            noWrap
+          >
+            Recent Meetings
+          </Typography>
+          <section className={classes.meetingSection}>
+          {completedMeetings.map((meeting, i) => (  
+            <React.Fragment key={i}>
+            <MeetingItem key={meeting.meetingId} {...meeting}/>
+            </React.Fragment>
+
+          ))}
+           
+          </section>
         </section>
-      </section>
-    </>
-  );
+      </>
+    );
+  return null;
 };
 
 export default MeetingsGrid;
