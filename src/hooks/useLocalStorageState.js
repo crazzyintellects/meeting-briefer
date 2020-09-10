@@ -9,6 +9,7 @@ function useLocalStorageState(key, defaultVal) {
       );
     } catch (e) {
       value = defaultVal;
+      console.log("error : ", e);
     }
     console.log("value : ", value);
     return value;

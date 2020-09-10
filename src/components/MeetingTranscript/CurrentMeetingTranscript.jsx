@@ -1,4 +1,4 @@
-import React, { useState, useEffect , useContext} from "react";
+import React, { useState, useEffect , useContext , memo} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { processTranscript } from "../../apihelpers/comprehend";
@@ -81,4 +81,4 @@ const CurrentMeetingTranscript = () => {
   );
 };
 
-export default CurrentMeetingTranscript;
+export default memo(CurrentMeetingTranscript);

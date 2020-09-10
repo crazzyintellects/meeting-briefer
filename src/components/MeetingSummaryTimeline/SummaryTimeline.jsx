@@ -70,7 +70,7 @@ export default function SummaryTimeline() {
       }else{
           setLoadingState(false);
       }
-  }, [singleMeeting.meetingON])
+  }, [singleMeeting.summary])
   return (
     <>
       <Typography
