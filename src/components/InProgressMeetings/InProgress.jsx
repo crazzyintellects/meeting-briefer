@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import Divider from "@material-ui/core/Divider";
 import {DefaultValues} from "../../context/meetings.context.js";
 import { useLocalStorageState } from "../../hooks/useLocalStorageState";
+import { useMeetingsState } from "../../hooks/useMeetingState";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -46,6 +47,7 @@ let s;
 
 const InProgress = () => {
   const classes = useStyles();
+  const {completeMeeting} = useMeetingsState();
   const [meetings] = useLocalStorageState(
     "meetings",
     DefaultValues,
@@ -82,6 +84,7 @@ const InProgress = () => {
         mtg.progress++;
         if (mtg.progress === 102) {
           mtg.completed = true;
+          completeMeeting(mtg);
         }
       }
     });
