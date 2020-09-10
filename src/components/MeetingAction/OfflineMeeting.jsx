@@ -60,7 +60,6 @@ const OfflineMeeting = () => {
       newMtg.transcript = "Welcome everyone to our Staff meeting. Hope everyone had some well deserved time off. Yes, yeah it was good, thank you. On our agenda today we have the following. Production Engineering update, Code freeze..."
       console.log(JSON.stringify(newMtg));
       useMeetingsState.submitMeeting(newMtg);
-      setMeetings(meetings);
       
       resetName();
       resetURL();
