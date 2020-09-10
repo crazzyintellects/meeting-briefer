@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sum-text-summarizer
+spec:
+  selector:
+    app: sum-text-summarizer
+  ports:
+  - port: 5000
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sum-text-summarizer
+  labels:
+    app: sum-text-summarizer
+spec:
+  selector:
+    matchLabels:
+      app: sum-text-summarizer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sum-text-summarizer
+    spec:
+      containers:
+      - name: sum-text-summarizer
+        image: codait/sum-text-summarizer:latest
+        ports:
+        - containerPort: 5000
