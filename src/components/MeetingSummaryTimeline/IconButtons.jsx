@@ -12,13 +12,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function IconButtons() {
+export default function IconButtons(props) {
   const classes = useStyles();
-
   return (
     <div className={classes.root}>
       
-      <IconButton color="secondary" aria-label="edit summary">
+      <IconButton color="secondary" aria-label="edit summary" onClick={props.changeState}>
       <EditIcon  />
       </IconButton>
       

@@ -1,5 +1,5 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, {useContext, useState} from "react";
+import {makeStyles, withStyles} from "@material-ui/core/styles";
 import Timeline from "@material-ui/lab/Timeline";
 import TimelineItem from "@material-ui/lab/TimelineItem";
 import TimelineSeparator from "@material-ui/lab/TimelineSeparator";
@@ -7,18 +7,14 @@ import TimelineConnector from "@material-ui/lab/TimelineConnector";
 import TimelineContent from "@material-ui/lab/TimelineContent";
 import TimelineOppositeContent from "@material-ui/lab/TimelineOppositeContent";
 import TimelineDot from "@material-ui/lab/TimelineDot";
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import Icon from "@material-ui/core/Icon";
-
 import LaptopMacIcon from "@material-ui/icons/LaptopMac";
-
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import AssignmentTurnedIn from "@material-ui/icons/AssignmentTurnedIn";
-
 import Button from "@material-ui/core/Button";
-
 import IconButtons from "./IconButtons";
-
+import {SingleMeetingContext} from "../../context/singleMeeting.context";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,189 +40,61 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     color: theme.palette.primary.dark,
   },
+  customTextArea:{
+      border:0,
+      backgroundColor:theme.palette.primary.contrastText,
+      width:200
+  }
 }));
+
 
 export default function SummaryTimeline() {
   const classes = useStyles();
-
+  const { singleMeeting } = useContext(SingleMeetingContext);
+  const [state, setState] = useState(true);
+  function toggleState(){
+      setState(false);
+  }
+  function toggleStateOnBlur(){
+      setState(true);
+  }
   return (
     <>
       <Typography
-        variant="h6"
-        component="h6"
-        gutterBottom
-        className={classes.title}
+          variant="h6"
+          component="h6"
+          gutterBottom
+          className={classes.title}
       >
         Meeting Summary Timeline
       </Typography>
       <Timeline align="alternate" className={classes.root}>
-        <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography variant="body2" color="textSecondary">
-              9:30 am
-            </Typography>
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineDot color="primary">
-              <LaptopMacIcon />
-            </TimelineDot>
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-            <Paper elevation={3} className={classes.paper}>
-              <IconButtons />
-              <Typography style={{ textAlign: "start" }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat
-              </Typography>
-            </Paper>
-          </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography variant="body2" color="textSecondary">
-              9:40 am
-            </Typography>
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineDot color="primary">
-              <LaptopMacIcon />
-            </TimelineDot>
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-            <Paper elevation={3} className={classes.paper}>
-            <IconButtons />
-              <Typography style={{ textAlign: "start" }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat
-              </Typography>
-            </Paper>
-          </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography variant="body2" color="textSecondary">
-              9:50 am
-            </Typography>
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineDot color="primary">
-              <LaptopMacIcon />
-            </TimelineDot>
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-            <Paper elevation={3} className={classes.paper}>
-            <IconButtons />
-              <Typography style={{ textAlign: "start" }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat
-              </Typography>
-            </Paper>
-          </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography variant="body2" color="textSecondary">
-              10:00 am
-            </Typography>
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineDot color="primary">
-              <LaptopMacIcon />
-            </TimelineDot>
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-            <Paper elevation={3} className={classes.paper}>
-            <IconButtons />
-              <Typography style={{ textAlign: "start" }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat
-              </Typography>
-            </Paper>
-          </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography variant="body2" color="textSecondary">
-              10:10 am
-            </Typography>
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineDot color="primary">
-              <LaptopMacIcon />
-            </TimelineDot>
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-            <Paper elevation={3} className={classes.paper}>
-            <IconButtons />
-              <Typography style={{ textAlign: "start" }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat
-              </Typography>
-            </Paper>
-          </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography variant="body2" color="textSecondary">
-              10:20 am
-            </Typography>
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineDot color="primary">
-              <LaptopMacIcon />
-            </TimelineDot>
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-            <Paper elevation={3} className={classes.paper}>
-            <IconButtons />
-              <Typography style={{ textAlign: "start" }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat
-              </Typography>
-            </Paper>
-          </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography variant="body2" color="textSecondary">
-              10:30 am
-            </Typography>
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineDot style={{ backgroundColor: "#44b300" }}>
-              <AssignmentTurnedIn />
-            </TimelineDot>
-          </TimelineSeparator>
-          <TimelineContent>
-            <Paper elevation={3} className={classes.paper}>
-            <IconButtons />
-              <Typography style={{ textAlign: "start" }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat
-              </Typography>
-            </Paper>
-          </TimelineContent>
-        </TimelineItem>
+        {singleMeeting.summary.map(summaryObject => (
+            <TimelineItem>
+              <TimelineOppositeContent>
+                <Typography variant="body2" color="textSecondary">
+                  {summaryObject.start.getHours() + ':' + summaryObject.start.getMinutes() + ':' + summaryObject.start.getSeconds()}
+                </Typography>
+              </TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineDot color="primary">
+                  <LaptopMacIcon />
+                </TimelineDot>
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent>
+                <Paper elevation={3} className={classes.paper}>
+                  <IconButtons changeState={toggleState}/>
+                  <TextareaAutosize id={summaryObject.interval} disabled={state} aria-label="minimumHeight" rowsMin={5} rowsMax={10} className={classes.customTextArea} onBlur={toggleStateOnBlur}>
+                      {summaryObject.text + ' ' + summaryObject.start.getHours() + ':' + summaryObject.start.getMinutes() + ':' + summaryObject.start.getSeconds()}
+                  </TextareaAutosize>
+                  {/*<Typography style={{ textAlign: "start" }}>
+                   {summaryObject.text}
+                  </Typography>*/}
+                </Paper>
+              </TimelineContent>
+            </TimelineItem>
+        ))}
       </Timeline>
       <Button
         variant="contained"
@@ -234,7 +102,7 @@ export default function SummaryTimeline() {
         className={classes.button}
         endIcon={<Icon>send</Icon>}
       >
-        Send
+        Email/Slack
       </Button>
     </>
   );

@@ -54,7 +54,7 @@ export default function MainContent({ meetings }) {
         </Grid>
         <Grid item xs={3}>
           <Paper className={classes.paper} elevation={5}>
-            <KeyPhrases/>
+        {/*   <KeyPhrases/> */}
           </Paper>
         </Grid>
 
