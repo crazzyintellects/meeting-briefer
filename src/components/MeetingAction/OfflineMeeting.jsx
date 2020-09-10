@@ -30,7 +30,7 @@ const OfflineMeeting = () => {
   const [meetingURL, setMeetingURL, resetURL] = useFormState("");
   const [showSubmitError, setShowSubmitError] = useToggle(false);
   const [errorMsg, setErrorMsg] = useState("");
-  const [meetings, setMeetings] = useLocalStorageState(
+  const [meetings] = useLocalStorageState(
     "meetings",
     DefaultValues,
   );
