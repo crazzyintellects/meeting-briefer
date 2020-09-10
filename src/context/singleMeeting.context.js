@@ -11,13 +11,32 @@ const initialMeeting = {
     endTime: "",
     progress: 0,
     completed: false,
-    summary: {
-      start: new Date(),
-      text: "This is good",
-      interval: 1,
-    },
-    keyPhrases:[],
-    textsegmentArr: []
+    summary: [
+        {
+            start: new Date(),
+            text: "Meeting Summary 1 at ",
+            interval: 1,
+        },
+        {
+            start: new Date(),
+            text: "Meeting Summary 2 at ",
+            interval: 2,
+        },
+        {
+            start: new Date(),
+            text: "Meeting Summary 3 at ",
+            interval: 3,
+        },
+        {
+            start: new Date(),
+            text: "Meeting Summary 4 at",
+            interval: 4,
+        },
+        {
+            start: new Date(),
+            text: "Meeting Summary 5 at",
+            interval: 5,
+        }],
   };
   export const SingleMeetingContext = createContext();
 
