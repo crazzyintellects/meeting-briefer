@@ -1,5 +1,5 @@
-import React, {useContext, useState} from "react";
-import {makeStyles, withStyles} from "@material-ui/core/styles";
+import React, {useContext, useEffect, useState} from "react";
+import {makeStyles} from "@material-ui/core/styles";
 import Timeline from "@material-ui/lab/Timeline";
 import TimelineItem from "@material-ui/lab/TimelineItem";
 import TimelineSeparator from "@material-ui/lab/TimelineSeparator";
@@ -15,6 +15,8 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButtons from "./IconButtons";
 import {SingleMeetingContext} from "../../context/singleMeeting.context";
+import Skeleton from '@material-ui/lab/Skeleton';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     margin: theme.spacing(1),
+      width:200,
   },
   paper: {
     padding: "0.4rem .8rem",
@@ -52,12 +55,22 @@ export default function SummaryTimeline() {
   const classes = useStyles();
   const { singleMeeting } = useContext(SingleMeetingContext);
   const [state, setState] = useState(true);
+  const [loading, setLoadingState] = useState(false);
+
   function toggleState(){
       setState(false);
   }
   function toggleStateOnBlur(){
       setState(true);
   }
+  useEffect(() => {
+      console.log("useEffect of SummaryTimeline called")
+      if(singleMeeting.summary === null || singleMeeting.summary.length ===0){
+          setLoadingState(true);
+      }else{
+          setLoadingState(false);
+      }
+  }, [singleMeeting.meetingON])
   return (
     <>
       <Typography
@@ -68,42 +81,35 @@ export default function SummaryTimeline() {
       >
         Meeting Summary Timeline
       </Typography>
-      <Timeline align="alternate" className={classes.root}>
-        {singleMeeting.summary.map(summaryObject => (
-            <TimelineItem>
-              <TimelineOppositeContent>
-                <Typography variant="body2" color="textSecondary">
-                  {summaryObject.start.getHours() + ':' + summaryObject.start.getMinutes() + ':' + summaryObject.start.getSeconds()}
-                </Typography>
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineDot color="primary">
-                  <LaptopMacIcon />
-                </TimelineDot>
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent>
-                <Paper elevation={3} className={classes.paper}>
-                  <IconButtons changeState={toggleState}/>
-                  <TextareaAutosize id={summaryObject.interval} disabled={state} aria-label="minimumHeight" rowsMin={5} rowsMax={10} className={classes.customTextArea} onBlur={toggleStateOnBlur}>
-                      {summaryObject.text + ' ' + summaryObject.start.getHours() + ':' + summaryObject.start.getMinutes() + ':' + summaryObject.start.getSeconds()}
-                  </TextareaAutosize>
-                  {/*<Typography style={{ textAlign: "start" }}>
+        {loading ? (<div><Skeleton animation="wave" /><Skeleton animation="wave" /><Skeleton animation="wave" /><Skeleton animation="wave" /><Skeleton animation="wave" /></div>) : (<Timeline align="alternate" className={classes.root}>
+                {singleMeeting.summary.map(summaryObject => (
+                    <TimelineItem>
+                        <TimelineOppositeContent>
+                            <Typography variant="body2" color="textSecondary">
+                                {summaryObject.start.getHours() + ':' + summaryObject.start.getMinutes() + ':' + summaryObject.start.getSeconds()}
+                            </Typography>
+                        </TimelineOppositeContent>
+                        <TimelineSeparator>
+                            <TimelineDot color="primary">
+                                <LaptopMacIcon />
+                            </TimelineDot>
+                            <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent>
+                            <Paper elevation={3} className={classes.paper}>
+                                <IconButtons changeState={toggleState}/>
+                                <TextareaAutosize id={summaryObject.interval} disabled={state} aria-label="minimumHeight" rowsMin={5} rowsMax={10} className={classes.customTextArea} onBlur={toggleStateOnBlur}>
+                                    {summaryObject.text + ' ' + summaryObject.start.getHours() + ':' + summaryObject.start.getMinutes() + ':' + summaryObject.start.getSeconds()}
+                                </TextareaAutosize>
+                                {/*<Typography style={{ textAlign: "start" }}>
                    {summaryObject.text}
                   </Typography>*/}
-                </Paper>
-              </TimelineContent>
-            </TimelineItem>
-        ))}
-      </Timeline>
-      <Button
-        variant="contained"
-        color="primary"
-        className={classes.button}
-        endIcon={<Icon>send</Icon>}
-      >
-        Email/Slack
-      </Button>
+                            </Paper>
+                        </TimelineContent>
+                    </TimelineItem>
+                ))}
+            </Timeline>)}
+        {loading ? (<div/>) : (<Button variant="contained" color="primary" className={classes.button} endIcon={<Icon>send</Icon>}>Email/Slack</Button>)}
     </>
-  );
+  )
 }
