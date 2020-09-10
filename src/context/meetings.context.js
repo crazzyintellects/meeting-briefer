@@ -5,7 +5,7 @@ import { useMeetingsState } from "../hooks/useMeetingState";
 const defaultMeetings = [
     {
       meetingId: 1,
-      meetingName: "vPayment Launchpad",
+      meetingName: "Software Testing",
       meetingURL: "",
       transcript: "",
       startTime: "Aug 15,2020 9:00 - 10:00 AM MST",
@@ -15,7 +15,7 @@ const defaultMeetings = [
       summary: {
         start: new Date(),
         text:
-          "The product partner has aligned to work on N plus two model, that will help finalize the userstories to be ready and delivered before 2 iterations and the kanban process is seamless ",
+          "Software testing can also provide an objective , independent view of the software to allow the business",
         interval: 1,
       },
     },
