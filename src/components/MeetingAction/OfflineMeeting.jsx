@@ -35,7 +35,8 @@ const OfflineMeeting = () => {
     DefaultValues,
   );
 
-  const submitMeeting = () => {
+  const {submitMeeting} = useMeetingsState();
+  const submitMeetingHandler = () => {
     
     if (meetingName === '') {
       setErrorMsg("Missing Meeting Name!");
@@ -59,7 +60,7 @@ const OfflineMeeting = () => {
       newMtg.meetingURL = meetingURL;
       newMtg.transcript = "Welcome everyone to our Staff meeting. Hope everyone had some well deserved time off. Yes, yeah it was good, thank you. On our agenda today we have the following. Production Engineering update, Code freeze..."
       console.log(JSON.stringify(newMtg));
-      useMeetingsState.submitMeeting(newMtg);
+      submitMeeting(newMtg);
       
       resetName();
       resetURL();
@@ -87,7 +88,7 @@ const OfflineMeeting = () => {
           onChange={setMeetingURL}
           value={meetingURL}
         />
-        <Button variant="outlined" color="secondary" onClick={submitMeeting}>
+        <Button variant="outlined" color="secondary" onClick={submitMeetingHandler}>
           Submit Meeting
         </Button>
         
