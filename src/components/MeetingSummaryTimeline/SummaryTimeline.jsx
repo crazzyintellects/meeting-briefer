@@ -46,7 +46,11 @@ const useStyles = makeStyles((theme) => ({
   customTextArea:{
       border:0,
       backgroundColor:theme.palette.primary.contrastText,
-      width:200
+      width:250,
+      minHeight : 30,
+      fontWeight: 400,
+      color: theme.palette.primary.dark,
+      fontSize: '14px'
   }
 }));
 
@@ -85,8 +89,8 @@ export default function SummaryTimeline() {
                 {singleMeeting.summary.map(summaryObject => (
                     <TimelineItem>
                         <TimelineOppositeContent>
-                            <Typography variant="body2" color="textSecondary">
-                                {summaryObject.start.getHours() + ':' + summaryObject.start.getMinutes() + ':' + summaryObject.start.getSeconds()}
+                            <Typography variant="body1" color="textSecondary">
+                                {summaryObject.start.getHours() + ':' + summaryObject.start.getMinutes() + ' '}
                             </Typography>
                         </TimelineOppositeContent>
                         <TimelineSeparator>
@@ -99,7 +103,7 @@ export default function SummaryTimeline() {
                             <Paper elevation={3} className={classes.paper}>
                                 <IconButtons changeState={toggleState}/>
                                 <TextareaAutosize id={summaryObject.interval} disabled={state} aria-label="minimumHeight" rowsMin={5} rowsMax={10} className={classes.customTextArea} onBlur={toggleStateOnBlur}>
-                                    {summaryObject.text + ' ' + summaryObject.start.getHours() + ':' + summaryObject.start.getMinutes() + ':' + summaryObject.start.getSeconds()}
+                                    {summaryObject.text }
                                 </TextareaAutosize>
                                 {/*<Typography style={{ textAlign: "start" }}>
                    {summaryObject.text}
