@@ -15,6 +15,8 @@ const initialMeeting = {
       text: "This is good",
       interval: 1,
     },
+    keyPhrases:[],
+    textsegmentArr: []
   };
   export const SingleMeetingContext = createContext();
   

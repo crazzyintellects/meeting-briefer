@@ -37,12 +37,26 @@ export const processTranscript = async (meetingTranscript) => {
 
   //call entities
   processEntities(params);
+  //processKeyPhrases(params);
 
   //call keyphrase
   // processKeyPhrases(params);
 
   //call sentiment
   //processSentiment(params);
+};
+export const processPhrasesOfTranscript = async (meetingTranscript, fn) => {
+  //set up params
+  if (meetingTranscript === undefined || meetingTranscript === "") return;
+
+  const params = {
+    LanguageCode: "en" /* required - other option is es */,
+    Text: meetingTranscript /* required - string that will parse for detecting entities */,
+  };
+comprehend.detectKeyPhrases(params,(err, data)=> {
+    return  data.KeyPhrases;
+  });
+
 };
 
 //process entities
@@ -89,5 +103,10 @@ const processEntities = async (params) => {
   });
 };
 
-  // const processKeyPhrases = async (params) => {};
+/* const processKeyPhrases = async (params) => {
+   comprehend.detectKeyPhrases(params,(err, data)=>{
+     return data;
+
+   })
+ };*/
   //const processSentiment = (params) => {};

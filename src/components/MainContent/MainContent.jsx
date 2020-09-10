@@ -5,6 +5,8 @@ import Grid from "@material-ui/core/Grid";
 import ColorLegends from "../ColorLegends/ColorLegends";
 import UserMeeingAction from "../MeetingAction/UserMeetingAction";
 import CurrentMeetingTranscript from "../MeetingTranscript/CurrentMeetingTranscript";
+import KeyPhrases from "../MeetingTranscript/KeyPhrases";
+
 import SummaryTimeline from "../MeetingSummaryTimeline/SummaryTimeline";
 import InProgress from "../InProgressMeetings/InProgress";
 
@@ -52,7 +54,7 @@ export default function MainContent({ meetings }) {
         </Grid>
         <Grid item xs={3}>
           <Paper className={classes.paper} elevation={5}>
-            Key Phrases
+            <KeyPhrases/>
           </Paper>
         </Grid>
 

@@ -47,3 +47,6 @@ body {
 .MuiAvatar-colorDefault {
   background-color: #44b700!important;
 }
+.highlight{
+  background-color: rgb(164, 180, 148); text-decoration-line: underline;
+}

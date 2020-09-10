@@ -62,6 +62,8 @@ export function useSingleMeetingState(initialMeeting) {
       startTime: startTime,
       meetingON: true,
       completed: false,
+      textsegmentArr:[],
+      keyPhrases:[],
     });
 
     //start transcribing
