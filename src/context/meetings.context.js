@@ -6,9 +6,11 @@ const defaultMeetings = [
     {
       meetingId: 1,
       meetingName: "vPayment Launchpad",
+      meetingURL: "",
       transcript: "",
-      startTime: "Sep 5,2020 9:00 - 10:00 AM MST",
+      startTime: "Aug 15,2020 9:00 - 10:00 AM MST",
       endTime: "",
+      progress: 100,
       completed: true,
       summary: {
         start: new Date(),
@@ -20,9 +22,11 @@ const defaultMeetings = [
     {
       meetingId: 2,
       meetingName: "vPayment Tech",
+      meetingURL: "",
       transcript: "",
-      startTime: "Sep 5,2020 9:00 - 10:00 AM MST",
+      startTime: "Aug 17,2020 11:00 - 12:00 PM MST",
       endTime: "",
+      progress: 100,
       completed: true,
       summary: {
         start: new Date(),
@@ -34,9 +38,11 @@ const defaultMeetings = [
     {
       meetingId: 3,
       meetingName: "vPayment Bug Bash",
+      meetingURL: "",
       transcript: "",
-      startTime: "Sep 5,2020 9:00 - 10:00 AM MST",
+      startTime: "Aug 24,2020 9:30 - 10:30 AM MST",
       endTime: "",
+      progress: 100,
       completed: true,
       summary: {
         start: new Date(),
@@ -47,10 +53,12 @@ const defaultMeetings = [
     },
     {
       meetingId: 4,
-      meetingName: "Meeting 1",
+      meetingName: "Round Table",
+      meetingURL: "",
       transcript: "",
-      startTime: "Sep 5,2020 9:00 - 10:00 AM MST",
+      startTime: "Sep 1,2020 1:00 - 2:00 PM MST",
       endTime: "",
+      progress: 21,
       completed: false,
       summary: {
         start: new Date(),
@@ -61,10 +69,12 @@ const defaultMeetings = [
     },
     {
       meetingId: 5,
-      meetingName: "Meeting 2",
+      meetingName: "Town Hall",
+      meetingURL: "",
       transcript: "",
-      startTime: "Sep 5,2020 9:00 - 10:00 AM MST",
+      startTime: "Sep 2,2020 9:00 - 10:30 AM MST",
       endTime: "",
+      progress: 56,
       completed: false,
       summary: {
         start: new Date(),
@@ -75,10 +85,12 @@ const defaultMeetings = [
     },
     {
       meetingId: 6,
-      meetingName: "Meeting 3",
+      meetingName: "Grooming Call",
+      meetingURL: "",
       transcript: "",
-      startTime: "Sep 5,2020 9:00 - 10:00 AM MST",
+      startTime: "Sep 8,2020 2:00 - 3:00 PM MST",
       endTime: "",
+      progress: 89,
       completed: false,
       summary: {
         start: new Date(),
@@ -89,6 +101,8 @@ const defaultMeetings = [
     },
   ];
   export const MeetingsContext = createContext();
+
+  export const DefaultValues = defaultMeetings;
   
   export function MeetingsProvider(props) {
     const meetingStuff = useMeetingsState(defaultMeetings);
