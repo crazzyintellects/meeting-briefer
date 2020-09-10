@@ -55,6 +55,9 @@ export default function SummaryTimeline() {
   function toggleState(){
       setState(false);
   }
+  function toggleStateOnBlur(){
+      setState(true);
+  }
   return (
     <>
       <Typography
@@ -82,7 +85,7 @@ export default function SummaryTimeline() {
               <TimelineContent>
                 <Paper elevation={3} className={classes.paper}>
                   <IconButtons changeState={toggleState}/>
-                  <TextareaAutosize id={summaryObject.interval} disabled={state} aria-label="minimumHeight" rowsMin={5} rowsMax={10} className={classes.customTextArea}>
+                  <TextareaAutosize id={summaryObject.interval} disabled={state} aria-label="minimumHeight" rowsMin={5} rowsMax={10} className={classes.customTextArea} onBlur={toggleStateOnBlur}>
                       {summaryObject.text + ' ' + summaryObject.start.getHours() + ':' + summaryObject.start.getMinutes() + ':' + summaryObject.start.getSeconds()}
                   </TextareaAutosize>
                   {/*<Typography style={{ textAlign: "start" }}>
