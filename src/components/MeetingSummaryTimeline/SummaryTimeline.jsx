@@ -90,7 +90,7 @@ export default function SummaryTimeline() {
                     <TimelineItem>
                         <TimelineOppositeContent>
                             <Typography variant="body1" color="textSecondary">
-                                {summaryObject.start.getHours() + ':' + summaryObject.start.getMinutes() + ' '}
+                                {(summaryObject.start.getHours() < 10 ? '0' + summaryObject.start.getHours() : summaryObject.start.getHours()) + ':' + (summaryObject.start.getMinutes()<10 ? '0' + summaryObject.start.getMinutes() : summaryObject.start.getMinutes()) + ' '}
                             </Typography>
                         </TimelineOppositeContent>
                         <TimelineSeparator>
