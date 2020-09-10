@@ -126,6 +126,7 @@ export function useSingleMeetingState(initialMeeting) {
       completed: false,
       textsegmentArr:[],
       keyPhrases:[],
+      summary:[]
     });
 
     //start transcribing
