@@ -54,12 +54,16 @@ const KeyPhrases = () => {
     //Update the original transcript
     useEffect(() => {
         console.log("inside use effect KeyPhrases");
-
+        if (meetingTranscript.isAWSCalled) {
+            setMeetingTranscript(initialState);
+            return;
+        }
 
         if (singleMeeting.transcript !== meetingTranscript.originalTranscript && !(meetingTranscript.isAWSCalled)) {
 
             if (singleMeeting.meetingON === false)
             {
+
                 if (singleMeeting.transcript  === undefined || singleMeeting.transcript  === "") return;
 
                 const params = {
@@ -75,8 +79,8 @@ const KeyPhrases = () => {
 
             }
         }
-      /*  return ()=>{
-            if (singleMeeting.meetingON === true && singleMeeting.transcript !== meetingTranscript.originalTranscript) {
+    /* return ()=>{
+            if (meetingTranscript.isAWSCalled) {
                 setMeetingTranscript(initialState);
             }
         }*/
