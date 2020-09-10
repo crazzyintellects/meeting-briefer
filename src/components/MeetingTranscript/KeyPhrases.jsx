@@ -40,8 +40,9 @@ const KeyPhrases = () => {
         sentiment: "NEUTRAL",
         //processedTrancript: meeting.transcript,
         meetingON: singleMeeting.meetingON,
-        keyPhrases:singleMeeting.keyPhrases,
-        textsegmentArr: singleMeeting.textsegmentArr
+        keyPhrases:[],
+        textsegmentArr: [],
+        isAWSCalled: false
     };
 
     // Set up initial Transcript
@@ -55,7 +56,7 @@ const KeyPhrases = () => {
         console.log("inside use effect KeyPhrases");
 
 
-        if (singleMeeting.transcript !== meetingTranscript.originalTranscript) {
+        if (singleMeeting.transcript !== meetingTranscript.originalTranscript && !(meetingTranscript.isAWSCalled)) {
 
             if (singleMeeting.meetingON === false)
             {
@@ -66,7 +67,7 @@ const KeyPhrases = () => {
                     Text: singleMeeting.transcript /* required - string that will parse for detecting entities */,
                 };
                 comprehend.detectKeyPhrases(params,(err, data)=> {
-                    setMeetingTranscript({'keyPhrases': data.KeyPhrases,'textsegmentArr':getHighlightedText(singleMeeting.transcript,data.KeyPhrases)})  ;
+                    setMeetingTranscript({'isAWSCalled':true,'keyPhrases': data.KeyPhrases,'textsegmentArr':getHighlightedText(singleMeeting.transcript,data.KeyPhrases)})  ;
                 });
 
                     /*      setMeetingTranscript({'keyPhrases': data.Text})
@@ -83,7 +84,7 @@ const KeyPhrases = () => {
     }, [
         // meeting.transcript,
         // meetingTranscript.originalTranscript,
-        singleMeeting.meetingON,meetingTranscript.keyPhrases
+        singleMeeting.meetingON
     ]);
 
     /*const getHighlightedText =(text, highlight)=> {
