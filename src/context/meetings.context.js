@@ -15,7 +15,7 @@ const defaultMeetings = [
       summary: {
         start: new Date(),
         text:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "The product partner has aligned to work on N plus two model, that will help finalize the userstories to be ready and delivered before 2 iterations and the kanban process is seamless ",
         interval: 1,
       },
     },
@@ -31,7 +31,7 @@ const defaultMeetings = [
       summary: {
         start: new Date(),
         text:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "Leadership mantra is 'Talk Less, Code More', engineers aligned that they will focus more on code and less on meetings",
         interval: 1,
       },
     },
@@ -47,7 +47,7 @@ const defaultMeetings = [
       summary: {
         start: new Date(),
         text:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "Teams worked on a hackathon to find bugs associated within vpayment platofrorm. Big participation and big prizes to be won.",
         interval: 1,
       },
     },
@@ -63,7 +63,7 @@ const defaultMeetings = [
       summary: {
         start: new Date(),
         text:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "Focus on testing is very important, better testing means lesser incidents which means lesser late night calls for developers.",
         interval: 1,
       },
     },
