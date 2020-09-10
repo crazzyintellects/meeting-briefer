@@ -1,7 +1,7 @@
 import React from "react";
 import {useState} from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-// import { useSingleMeetingState } from "../../hooks/useMeetingState";
+import { useMeetingsState } from "../../hooks/useMeetingState";
 import useFormState from "../../hooks/useFormState";
 import useToggle from "../../hooks/useToggle";
 import Typography from "@material-ui/core/Typography";
@@ -57,9 +57,9 @@ const OfflineMeeting = () => {
       newMtg.meetingId = mtgID;
       newMtg.meetingName = meetingName;
       newMtg.meetingURL = meetingURL;
+      newMtg.transcript = "Welcome everyone to our Staff meeting. Hope everyone had some well deserved time off. Yes, yeah it was good, thank you. On our agenda today we have the following. Production Engineering update, Code freeze..."
       console.log(JSON.stringify(newMtg));
-      meetings.push(newMtg);
-      console.log(JSON.stringify(meetings));
+      useMeetingsState.submitMeeting(newMtg);
       setMeetings(meetings);
       
       resetName();
