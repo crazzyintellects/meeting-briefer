@@ -50,7 +50,8 @@ const useStyles = makeStyles((theme) => ({
       minHeight : 30,
       fontWeight: 400,
       color: theme.palette.primary.dark,
-      fontSize: '14px'
+      fontSize: '14px',
+      textTransform :'capitalize'
   }
 }));
 
@@ -83,7 +84,7 @@ export default function SummaryTimeline() {
           gutterBottom
           className={classes.title}
       >
-        Meeting Summary Timeline
+        Meeting Synopsis Timeline
       </Typography>
         {loading ? (<div><Skeleton animation="wave" /><Skeleton animation="wave" /><Skeleton animation="wave" /><Skeleton animation="wave" /><Skeleton animation="wave" /></div>) : (<Timeline align="alternate" className={classes.root}>
                 {singleMeeting.summary.map(summaryObject => (

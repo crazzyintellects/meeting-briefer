@@ -165,7 +165,7 @@ export default function Header() {
         <Toolbar className={classes.toolbar}>
           <div>
             <Typography className={classes.title} variant="h4" noWrap>
-              Meeting Summarizer
+              Smart MOM
             </Typography>
           </div>
           <div className={classes.search}>

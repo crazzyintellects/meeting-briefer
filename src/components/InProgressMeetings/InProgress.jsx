@@ -73,7 +73,7 @@ const InProgress = () => {
   useEffect(() => {
     setInterval(() => {
       setCounter(state => (state +1));
-    }, 1000);
+    }, 1500);
   }, []);
 
   // This is for counter state variable
@@ -105,7 +105,7 @@ const InProgress = () => {
         gutterBottom
         className={classes.title}
       >
-        In Progress (Summary)
+        In Progress (Synopsis)
       </Typography>
       {inProgressMeetings.map((meeting, i) => (  
         <React.Fragment key={i}>
